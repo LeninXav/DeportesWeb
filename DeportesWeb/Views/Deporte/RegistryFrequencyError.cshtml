@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Error";
+}
+
+<h2>@TempData["Error2"].ToString()</h2>
+
+<h3>@TempData["Error1"].ToString()</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            @TempData["Error"].ToString()
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Regresar", "IndexRegistryFrequecy", new { id = TempData["id"]})
+        </div>
+    }
+</div>

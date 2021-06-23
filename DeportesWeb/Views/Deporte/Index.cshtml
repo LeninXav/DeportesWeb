@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DeportesWeb.Models.SportsUsersViewModel>
+@{
+    ViewBag.Title = "Deportes";
+}
+<h2>Deportes</h2>
+@Html.ActionLink("Agregar", "Create")
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>DEPORTE</th>
+            <th>FRECUENCIAS</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @Html.HiddenFor(modelItem => item.idUser)
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.frecuencias)
+                </td>
+                <td>
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id }) | 
+                    @Html.ActionLink("Frecuencia", "IndexRegistryFrequecy", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

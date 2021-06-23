@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DeportesWeb.Models.ReporteTabla>
+<h2>Reporte</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Deporte</th>
+            <th>Frecuencia</th>
+            <th>Tiempo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.deporte)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.frecuencia)
+                </td>
+                <td>
+                   @Html.DisplayFor(modelItem => item.tiempo)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Nuevo Reporte", "Report")
+</div>

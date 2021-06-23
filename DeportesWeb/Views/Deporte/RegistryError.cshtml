@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Error";
+}
+
+<h2>Eliminar</h2>
+
+<h3>Error al Eliminar Registrar Actividad</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            @TempData["Error"].ToString()
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Regresar", "IndexRegistry")
+        </div>
+    }
+</div>

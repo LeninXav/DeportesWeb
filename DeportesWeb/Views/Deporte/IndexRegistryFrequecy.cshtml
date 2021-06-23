@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DeportesWeb.Models.RegistryFrequencyViewModel>
+@{
+    ViewBag.Title = "Deportes";
+}
+<h2>@TempData["deporte"]</h2>
+@Html.ActionLink("Agregar", "CreateRegistryFrequecy", new { id=TempData["id"]})
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>FRECUENCIA</th>
+            <th>HORAS</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.frecuencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tiempo)
+                </td>
+                <td>
+                    @Html.ActionLink("Eliminar", "DeleteRegistryFrequecy", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Regresar", "Index", "Deporte")
+</div>
